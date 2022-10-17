@@ -25,7 +25,7 @@ function CounterAction() {
           <h3>Count:</h3>
           <h1>{count}</h1>
         </div>
-        <div class="buttons">
+        <div className="buttons">
           <Button title={"-"} action={decrementCount}  
            />
           <Button title={"+"} action={incrementCount} />
