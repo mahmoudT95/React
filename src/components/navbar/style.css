@@ -4,3 +4,16 @@ ul{
 ul li{
     cursor: pointer;
 }
+ul  a {
+    text-decoration: none ; 
+}
+.btn {
+    padding: .55rem 1.5rem .45rem;
+  }
+  .badge-notification {
+    position: absolute;
+    font-size: .6rem;
+    margin-top: -0.1rem;
+    
+    padding: 0.2em 0.45em !important;
+}

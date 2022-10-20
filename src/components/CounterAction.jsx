@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React  from "react";
 import Button from "./Button";
+import { useSelector ,useDispatch } from "react-redux/es/exports";
 import "./counter.css"
+
+import {incrementCount ,decrementCount} from '../redux/counterSlice'
+
+
+
 function CounterAction() {
-    const [count, setCount] =useState(0) ;
+    //global state 
+    
+    const countGlobalValue = useSelector(state=>state.counterStore.counter);
+    // console.log(countGlobalValue)
+    //dispatch
+    const dispatch =useDispatch();
  
-    let incrementCount = () => {
-      
-      const newCountValue = count + 1;
-      setCount(newCountValue);
+    const increment = () => {
+      dispatch(incrementCount(1))
+     
     };
   
-    let decrementCount = () => {
-      if(count > 0){
-        const newCountValue = count - 1;
-        setCount(newCountValue);
+    const decrement = () => {
+      if(countGlobalValue > 0){
+        dispatch(decrementCount(1))
       }
      
     
@@ -23,12 +32,12 @@ function CounterAction() {
       <div className="header">
         <div className="count">
           <h3>Count:</h3>
-          <h1>{count}</h1>
+          <h1>{countGlobalValue}</h1>
         </div>
         <div className="buttons">
-          <Button title={"-"} action={decrementCount}  
+          <Button title={"-"} action={decrement}  
            />
-          <Button title={"+"} action={incrementCount} />
+          <Button title={"+"} action={increment} />
         </div>
       </div>
     </div>
